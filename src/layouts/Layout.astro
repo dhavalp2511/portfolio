@@ -1,0 +1,96 @@
+---
+export interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "Dhaval Patel - Full Stack Developer specializing in React Native and Mobile App Development" } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    
+    <title>{title}</title>
+    
+    <!-- Import global styles -->
+    <style>
+      /* Additional critical styles can be placed here */
+    </style>
+  </head>
+  <body>
+    <div id="mouse-follower" class="fixed w-6 h-6 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full pointer-events-none z-50 opacity-0 transition-opacity duration-300"></div>
+    <slot />
+    
+    <script>
+      // Mouse follower effect
+      const mouseFollower = document.getElementById('mouse-follower');
+      let mouseX = 0;
+      let mouseY = 0;
+      let followerX = 0;
+      let followerY = 0;
+      
+      document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        mouseFollower!.style.opacity = '0.6';
+      });
+      
+      document.addEventListener('mouseleave', () => {
+        mouseFollower!.style.opacity = '0';
+      });
+      
+      function animateFollower() {
+        const dx = mouseX - followerX;
+        const dy = mouseY - followerY;
+        
+        followerX += dx * 0.1;
+        followerY += dy * 0.1;
+        
+        mouseFollower!.style.transform = `translate(${followerX - 12}px, ${followerY - 12}px)`;
+        
+        requestAnimationFrame(animateFollower);
+      }
+      
+      animateFollower();
+      
+      // Smooth scrolling for navigation links
+      document.addEventListener('DOMContentLoaded', () => {
+        const links = document.querySelectorAll('a[href^="#"]');
+        links.forEach(link => {
+          link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const target = document.querySelector(link.getAttribute('href')!);
+            if (target) {
+              target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+              });
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
+
+<style>
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+</style>

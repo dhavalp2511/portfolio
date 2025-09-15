@@ -1,0 +1,26 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import PhysicsBackground from '../components/PhysicsBackground';
+import IntroSection from '../components/sections/IntroSection.astro';
+import AboutSection from '../components/sections/AboutSection.astro';
+import ProjectsSection from '../components/sections/ProjectsSection.astro';
+import ExperienceSection from '../components/sections/ExperienceSection.astro';
+import EducationSection from '../components/sections/EducationSection.astro';
+import FooterSection from '../components/sections/FooterSection.astro';
+import '../styles/global.css';
+---
+
+<Layout title="Dhaval Patel - Full Stack Developer" description="Full Stack Developer specializing in React Native and Mobile App Development with 6+ years of experience.">
+  <PhysicsBackground client:load />
+  <Navigation />
+  
+  <main class="relative z-10">
+    <IntroSection />
+    <AboutSection />
+    <ProjectsSection />
+    <ExperienceSection />
+    <EducationSection />
+    <FooterSection />
+  </main>
+</Layout>

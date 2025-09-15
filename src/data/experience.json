@@ -1,0 +1,72 @@
+{
+  "experience": [
+    {
+      "id": "senior-dev",
+      "company": "Tech Innovations Inc.",
+      "position": "Senior Full Stack Developer",
+      "duration": "2022 - Present",
+      "location": "Remote",
+      "type": "Full-time",
+      "description": "Lead development of mobile and web applications using React Native and modern web technologies. Mentor junior developers and collaborate with cross-functional teams.",
+      "achievements": [
+        "Led a team of 4 developers in building a mobile app with 50K+ users",
+        "Reduced app loading time by 60% through performance optimization",
+        "Implemented CI/CD pipeline reducing deployment time by 80%",
+        "Mentored 3 junior developers who were promoted within 1 year"
+      ],
+      "technologies": [
+        "React Native",
+        "React",
+        "Node.js",
+        "TypeScript",
+        "AWS",
+        "MongoDB"
+      ]
+    },
+    {
+      "id": "fullstack-dev",
+      "company": "Digital Solutions Ltd.",
+      "position": "Full Stack Developer",
+      "duration": "2020 - 2022",
+      "location": "New York, NY",
+      "type": "Full-time",
+      "description": "Developed and maintained multiple web applications and mobile apps. Worked closely with design and product teams to deliver high-quality user experiences.",
+      "achievements": [
+        "Built 3 mobile applications from scratch using React Native",
+        "Improved existing web application performance by 45%",
+        "Integrated third-party APIs and payment systems",
+        "Collaborated with UI/UX team to improve user engagement by 30%"
+      ],
+      "technologies": [
+        "React",
+        "React Native",
+        "Express.js",
+        "PostgreSQL",
+        "Firebase"
+      ]
+    },
+    {
+      "id": "frontend-dev",
+      "company": "Creative Web Studio",
+      "position": "Frontend Developer",
+      "duration": "2019 - 2020",
+      "location": "San Francisco, CA",
+      "type": "Full-time",
+      "description": "Focused on creating responsive and interactive user interfaces for various client projects. Collaborated with designers to implement pixel-perfect designs.",
+      "achievements": [
+        "Delivered 15+ responsive websites with 99% client satisfaction",
+        "Reduced page load times by 50% through optimization techniques",
+        "Implemented modern JavaScript frameworks and build tools",
+        "Created reusable component library used across multiple projects"
+      ],
+      "technologies": [
+        "JavaScript",
+        "React",
+        "Vue.js",
+        "SASS",
+        "Webpack",
+        "Git"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,259 @@
+# Cursor Rules for Portfolio Project
+
+## Project Overview
+
+This is a modern portfolio website built with Astro, React, TypeScript, and Tailwind CSS. The project uses Bun as the package manager and is optimized for GitHub Pages deployment.
+
+## Tech Stack
+
+- **Framework**: Astro (Static Site Generator)
+- **UI Components**: React 19 with TypeScript
+- **Styling**: Tailwind CSS v4 with custom CSS
+- **Animations**: CSS animations + Canvas-based physics
+- **Package Manager**: Bun
+- **Deployment**: GitHub Pages with GitHub Actions
+
+## Code Style & Conventions
+
+### General Guidelines
+
+- Use TypeScript for all new files
+- Follow functional programming patterns where possible
+- Prefer composition over inheritance
+- Use meaningful variable and function names
+- Write self-documenting code with minimal comments unless complex logic requires explanation
+
+### File Naming
+
+- Use PascalCase for React components: `PhysicsBackground.tsx`
+- Use camelCase for utilities and helpers: `particleUtils.ts`
+- Use kebab-case for Astro components: `intro-section.astro`
+- Use lowercase for data files: `personal.json`
+
+### Component Structure
+
+- Astro components in `src/components/` for static content
+- React components in `src/components/` for interactive features
+- Section components in `src/components/sections/`
+- Keep components small and focused on single responsibility
+
+### Styling Guidelines
+
+- Use Tailwind CSS classes primarily
+- Custom CSS in `src/styles/global.css` for global styles
+- Use CSS custom properties for dynamic values
+- Maintain consistent spacing using Tailwind's spacing scale
+- Follow mobile-first responsive design principles
+
+### Data Management
+
+- Store all content in JSON files in `src/data/`
+- Use TypeScript interfaces for JSON data structure
+- Keep JSON files flat and simple for easy editing
+- Validate data structure at build time
+
+## File Organization
+
+```
+src/
+├── components/          # Reusable components
+│   ├── sections/       # Page sections
+│   └── *.astro|*.tsx   # Individual components
+├── data/               # JSON content files
+├── layouts/            # Page layouts
+├── pages/              # Route pages
+└── styles/             # Global styles
+```
+
+## Development Guidelines
+
+### When Writing Components
+
+- Always import React types when using TypeScript
+- Use `client:load` directive for interactive React components in Astro
+- Prefer CSS classes over inline styles unless dynamic
+- Use semantic HTML elements
+- Ensure accessibility with proper ARIA labels and keyboard navigation
+
+### Performance Considerations
+
+- Lazy load heavy components with `client:visible`
+- Optimize images and use appropriate formats
+- Minimize bundle size by importing only needed utilities
+- Use Astro's partial hydration for better performance
+
+### Responsive Design
+
+- Mobile-first approach (min-width media queries)
+- Use Tailwind's responsive prefixes: `sm:`, `md:`, `lg:`, `xl:`
+- Test on multiple device sizes
+- Ensure touch-friendly interface elements (min 44px touch targets)
+
+## JSON Data Structure
+
+### Personal Information (`personal.json`)
+
+```typescript
+interface PersonalData {
+  name: string;
+  title: string;
+  specialties: string[];
+  tagline: string;
+  email: string;
+  phone: string;
+  location: string;
+  social: {
+    github?: string;
+    linkedin?: string;
+    twitter?: string;
+    portfolio?: string;
+    instagram?: string;
+  };
+}
+```
+
+### Projects (`projects.json`)
+
+```typescript
+interface Project {
+  id: string;
+  title: string;
+  description: string;
+  image: string;
+  technologies: string[];
+  features: string[];
+  liveUrl?: string;
+  githubUrl?: string;
+  status: "completed" | "in-progress" | "planned";
+  date: string;
+}
+```
+
+## Common Patterns
+
+### Astro Component Structure
+
+```astro
+---
+// Import statements
+import SomeComponent from '../components/SomeComponent.astro';
+import data from '../data/someData.json';
+
+// Component logic (server-side)
+const processedData = data.map(item => ({
+  ...item,
+  processed: true
+}));
+---
+
+<!-- HTML template -->
+<section class="py-20 relative z-10">
+  <div class="max-w-7xl mx-auto px-6">
+    <!-- Content -->
+  </div>
+</section>
+
+<style>
+  /* Component-specific styles */
+</style>
+```
+
+### React Component Structure
+
+```tsx
+import React, { useState, useEffect } from "react";
+
+interface ComponentProps {
+  // Define props
+}
+
+const ComponentName: React.FC<ComponentProps> = ({ props }) => {
+  // Hooks and state
+  // Event handlers
+  // Effects
+
+  return <div className="tailwind-classes">{/* JSX content */}</div>;
+};
+
+export default ComponentName;
+```
+
+## Build & Deployment
+
+### Local Development
+
+```bash
+bun install          # Install dependencies
+bun run dev         # Start development server
+bun run build       # Build for production
+bun run preview     # Preview production build
+```
+
+### Before Committing
+
+1. Run `bun run build` to ensure no build errors
+2. Test responsive design on multiple screen sizes
+3. Verify all links and interactive elements work
+4. Check console for any errors or warnings
+5. Validate JSON data structure
+
+### Deployment Checklist
+
+- [ ] Update `astro.config.mjs` with correct site URL
+- [ ] Verify all JSON content is accurate
+- [ ] Test build process locally
+- [ ] Ensure GitHub Pages is configured correctly
+- [ ] Check GitHub Actions workflow runs successfully
+
+## Troubleshooting
+
+### Common Issues
+
+- **Build Errors**: Check TypeScript types and imports
+- **Hydration Issues**: Ensure client-side components are properly marked
+- **Styling Issues**: Verify Tailwind class names and CSS specificity
+- **Performance**: Use browser dev tools to identify bottlenecks
+
+### Debugging Tips
+
+- Use `console.log` sparingly in production code
+- Leverage browser dev tools for CSS debugging
+- Check Network tab for loading issues
+- Use Lighthouse for performance auditing
+
+## VS Code Extensions Recommended
+
+- Astro
+- Tailwind CSS IntelliSense
+- TypeScript Importer
+- Auto Rename Tag
+- Prettier - Code formatter
+- ESLint
+
+## Code Quality
+
+- Use TypeScript strict mode
+- Follow ESLint rules
+- Use Prettier for consistent formatting
+- Write descriptive commit messages
+- Keep functions small and focused
+- Use meaningful variable names
+
+## Security Considerations
+
+- Sanitize any user input (though this is a static site)
+- Use HTTPS for all external links
+- Validate JSON data structure
+- Keep dependencies updated
+- Use environment variables for sensitive data (not applicable for static sites)
+
+## Accessibility
+
+- Use semantic HTML elements
+- Provide alt text for images
+- Ensure keyboard navigation works
+- Maintain good color contrast ratios
+- Use ARIA labels where appropriate
+- Test with screen readers when possible
+
+Remember: This is a static portfolio site focused on performance, accessibility, and maintainability. Always prioritize user experience and clean, readable code.

@@ -1,0 +1,73 @@
+{
+  "projects": [
+    {
+      "id": "ecommerce-app",
+      "title": "E-Commerce Mobile App",
+      "description": "Full-featured e-commerce mobile application built with React Native, featuring real-time inventory, secure payments, and intuitive user experience.",
+      "image": "/images/projects/ecommerce-app.jpg",
+      "technologies": [
+        "React Native",
+        "Node.js",
+        "MongoDB",
+        "Stripe API",
+        "Firebase"
+      ],
+      "features": [
+        "Real-time inventory management",
+        "Secure payment integration",
+        "Push notifications",
+        "Offline mode support"
+      ],
+      "liveUrl": "https://yourapp.com",
+      "githubUrl": "https://github.com/yourusername/ecommerce-app",
+      "status": "completed",
+      "date": "2024"
+    },
+    {
+      "id": "task-manager",
+      "title": "Collaborative Task Manager",
+      "description": "A modern web application for team collaboration with real-time updates, file sharing, and project management features.",
+      "image": "/images/projects/task-manager.jpg",
+      "technologies": [
+        "React",
+        "TypeScript",
+        "Express.js",
+        "PostgreSQL",
+        "Socket.io"
+      ],
+      "features": [
+        "Real-time collaboration",
+        "File upload and sharing",
+        "Kanban board interface",
+        "Team chat functionality"
+      ],
+      "liveUrl": "https://taskmanager.com",
+      "githubUrl": "https://github.com/yourusername/task-manager",
+      "status": "completed",
+      "date": "2023"
+    },
+    {
+      "id": "weather-app",
+      "title": "Weather Forecast App",
+      "description": "Beautiful weather application with location-based forecasts, interactive maps, and customizable widgets.",
+      "image": "/images/projects/weather-app.jpg",
+      "technologies": [
+        "React Native",
+        "TypeScript",
+        "Weather API",
+        "Maps API",
+        "Redux"
+      ],
+      "features": [
+        "7-day weather forecast",
+        "Interactive weather maps",
+        "Location-based alerts",
+        "Customizable widgets"
+      ],
+      "liveUrl": "https://weatherapp.com",
+      "githubUrl": "https://github.com/yourusername/weather-app",
+      "status": "in-progress",
+      "date": "2024"
+    }
+  ]
+}
