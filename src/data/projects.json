@@ -1,73 +1,271 @@
 {
   "projects": [
     {
-      "id": "ecommerce-app",
-      "title": "E-Commerce Mobile App",
-      "description": "Full-featured e-commerce mobile application built with React Native, featuring real-time inventory, secure payments, and intuitive user experience.",
-      "image": "/images/projects/ecommerce-app.jpg",
+      "id": "hailify-management",
+      "title": "Hailify Management Systems",
+      "description": "Comprehensive driver and warehouse management platform for Hailify, featuring driver tracking, route optimization, warehouse operations, and fleet management capabilities. Includes both web admin panels and mobile applications.",
+      "image": "/images/projects/hailify-management.jpg",
       "technologies": [
         "React Native",
+        "Next.js",
+        "TypeScript",
         "Node.js",
-        "MongoDB",
-        "Stripe API",
-        "Firebase"
-      ],
-      "features": [
-        "Real-time inventory management",
-        "Secure payment integration",
-        "Push notifications",
-        "Offline mode support"
-      ],
-      "liveUrl": "https://yourapp.com",
-      "githubUrl": "https://github.com/yourusername/ecommerce-app",
-      "status": "completed",
-      "date": "2024"
-    },
-    {
-      "id": "task-manager",
-      "title": "Collaborative Task Manager",
-      "description": "A modern web application for team collaboration with real-time updates, file sharing, and project management features.",
-      "image": "/images/projects/task-manager.jpg",
-      "technologies": [
         "React",
-        "TypeScript",
-        "Express.js",
-        "PostgreSQL",
-        "Socket.io"
+        "Mobile App Development",
+        "Admin Panel Development"
       ],
       "features": [
-        "Real-time collaboration",
-        "File upload and sharing",
-        "Kanban board interface",
-        "Team chat functionality"
+        "Driver management and tracking system",
+        "Warehouse operations management",
+        "Route optimization and fleet tracking",
+        "Real-time location services",
+        "Comprehensive admin dashboard",
+        "Cross-platform mobile applications"
       ],
-      "liveUrl": "https://taskmanager.com",
-      "githubUrl": "https://github.com/yourusername/task-manager",
+      "liveUrl": "https://tms.hailify.liota.ai/",
       "status": "completed",
-      "date": "2023"
+      "date": "2023-2024"
     },
     {
-      "id": "weather-app",
-      "title": "Weather Forecast App",
-      "description": "Beautiful weather application with location-based forecasts, interactive maps, and customizable widgets.",
-      "image": "/images/projects/weather-app.jpg",
+      "id": "gomo-fleet-delivery",
+      "title": "Gomo Fleet Delivery",
+      "description": "Cross-platform delivery management app that connects drivers with delivery jobs across the on-demand industry. Features job matching, earnings tracking, and comprehensive delivery management for both food and package deliveries.",
+      "image": "/images/projects/gomo-fleet.jpg",
       "technologies": [
         "React Native",
         "TypeScript",
-        "Weather API",
-        "Maps API",
-        "Redux"
+        "Cross-platform Development",
+        "Location Services",
+        "Real-time Updates",
+        "Payment Integration"
       ],
       "features": [
-        "7-day weather forecast",
-        "Interactive weather maps",
-        "Location-based alerts",
-        "Customizable widgets"
+        "Multi-platform delivery job matching",
+        "Earnings and hours tracking",
+        "Route optimization for maximum profitability",
+        "Real-time job notifications",
+        "Comprehensive delivery metrics",
+        "Cross-platform compatibility (Android & iOS)"
       ],
-      "liveUrl": "https://weatherapp.com",
-      "githubUrl": "https://github.com/yourusername/weather-app",
+      "liveUrl": "https://play.google.com/store/apps/details?id=com.gomo.fleet&hl=en_IN",
+      "status": "completed",
+      "date": "2023-2024"
+    },
+    {
+      "id": "certifire-floorplan",
+      "title": "Certifire Floorplan Management",
+      "description": "Full-stack floorplan management system with advanced PDF editing capabilities for floorplan pinning and annotation. Features comprehensive project, site, and building management with automated document processing.",
+      "image": "/images/projects/certifire-app.jpg",
+      "technologies": [
+        "Next.js",
+        "TypeScript",
+        "Node.js",
+        "SST",
+        "Puppeteer",
+        "Ghostscript",
+        "GraphicsMagick",
+        "PDF Processing"
+      ],
+      "features": [
+        "Advanced PDF editing and annotation",
+        "Floorplan pinning and marking system",
+        "Project and site management",
+        "Building information management",
+        "Automated document processing",
+        "Real-time collaboration tools"
+      ],
+      "liveUrl": "https://app.certifire.au/",
+      "status": "completed",
+      "date": "2023-2024"
+    },
+    {
+      "id": "cmap-offline-sync",
+      "title": "C-Map Offline Sync Platform",
+      "description": "Fully offline-first mapping application with seamless synchronization between web and mobile platforms. Built with Expo for cross-platform compatibility and features real-time offline sync using PowerSync and Supabase.",
+      "image": "/images/projects/cmap-app.jpg",
+      "technologies": [
+        "Expo",
+        "React Native",
+        "PowerSync",
+        "Supabase",
+        "TypeScript",
+        "Offline-first Architecture",
+        "Real-time Sync"
+      ],
+      "features": [
+        "Fully offline functionality",
+        "Real-time sync between web and mobile",
+        "Cross-platform compatibility (Android & iOS)",
+        "Offline-first data architecture",
+        "Seamless online/offline transitions",
+        "Advanced mapping capabilities"
+      ],
+      "liveUrl": "https://app.cmap.au/",
       "status": "in-progress",
-      "date": "2024"
+      "date": "2024-Present"
+    },
+    {
+      "id": "betterhalf-ai",
+      "title": "BetterHalf AI Matchmaking Platform",
+      "description": "AI-powered matchmaking platform that helps individuals find compatible partners based on shared interests and values. Features personalized matches using AI algorithms, detailed profile creation, and comprehensive communication tools.",
+      "image": "/images/projects/betterhalf-app.jpg",
+      "technologies": [
+        "React Native",
+        "TypeScript",
+        "React Query",
+        "MMKV",
+        "RazorPay",
+        "Fast Image",
+        "AI/ML Integration",
+        "Real-time Chat",
+        "Video Calling"
+      ],
+      "features": [
+        "AI-powered compatibility matching",
+        "Detailed profile creation and verification",
+        "Real-time chat and messaging",
+        "Voice and video calling features",
+        "Secure payment integration with RazorPay",
+        "Personalized match recommendations",
+        "Advanced search and filter options"
+      ],
+      "liveUrl": "https://play.google.com/store/search?q=betterhalf&c=apps&hl=en_IN",
+      "status": "completed",
+      "date": "2021-2023"
+    },
+    {
+      "id": "ugeo-social",
+      "title": "uGeo: Discover Local Events",
+      "description": "Geo-social platform that helps users discover local businesses, find local events, and connect with communities. Features location-based event discovery, social networking, and real-time local news updates.",
+      "image": "/images/projects/ugeo-app.jpg",
+      "technologies": [
+        "React Native",
+        "TypeScript",
+        "Geolocation Services",
+        "Maps Integration",
+        "Real-time Updates",
+        "Social Networking APIs",
+        "Push Notifications"
+      ],
+      "features": [
+        "Location-based event discovery",
+        "Drop and share content on interactive maps",
+        "Community group creation and management",
+        "Local business discovery and reviews",
+        "Real-time local news and updates",
+        "Secure location sharing with trusted users",
+        "Event creation and management tools"
+      ],
+      "liveUrl": "https://play.google.com/store/apps/details?id=com.geocloud.ugeo&hl=en_IN",
+      "status": "completed",
+      "date": "2021-2023"
+    },
+    {
+      "id": "kfc-indonesia",
+      "title": "KFC Indonesia Mobile App",
+      "description": "Official KFC mobile application for Indonesia market, enabling users to order food for dine-in, takeaway, drive-thru, and delivery. Features contactless ordering and payment integration.",
+      "image": "/images/projects/kfc-indonesia.jpg",
+      "technologies": [
+        "Android Native",
+        "Java",
+        "Kotlin",
+        "Android SDK",
+        "Google Play Services",
+        "Payment Gateway Integration",
+        "Push Notifications"
+      ],
+      "features": [
+        "Multi-channel ordering (dine-in, takeaway, drive-thru, delivery)",
+        "Contactless payment options",
+        "Order tracking and notifications",
+        "Menu browsing and favorites",
+        "User registration and rewards system"
+      ],
+      "liveUrl": "https://play.google.com/store/apps/details?id=com.kfc.mobile&hl=en",
+      "status": "completed",
+      "date": "2019-2020"
+    },
+    {
+      "id": "hyer-job-search",
+      "title": "Hyer Job Search App",
+      "description": "On-demand labor platform connecting businesses with flexible workers for various tasks including stocking, warehousing, merchandising, and general labor. Features real-time job matching and instant payouts.",
+      "image": "/images/projects/hyer-app.jpg",
+      "technologies": [
+        "Android Native",
+        "Java",
+        "Kotlin",
+        "Android SDK",
+        "REST APIs",
+        "Location Services",
+        "Background Check Integration",
+        "Payment Processing"
+      ],
+      "features": [
+        "Real-time job search and matching",
+        "Background check verification",
+        "Instant payout system",
+        "Location-based task discovery",
+        "Business and tasker dual interface",
+        "Task management and tracking"
+      ],
+      "liveUrl": "https://play.google.com/store/apps/details?id=com.hyer&hl=en",
+      "status": "completed",
+      "date": "2019-2020"
+    },
+    {
+      "id": "io-carpool",
+      "title": "iO Carpool (Ride With IO)",
+      "description": "Ride-sharing platform that connects drivers with nearby passengers, enabling users to share rides and earn money by sharing their vehicles. Features real-time location tracking, payment processing, and seamless user experience.",
+      "image": "/images/projects/io-carpool.jpg",
+      "technologies": [
+        "React Native",
+        "TypeScript",
+        "Axios",
+        "AsyncStorage",
+        "Stripe",
+        "Fast Image",
+        "Google Maps API",
+        "REST APIs"
+      ],
+      "features": [
+        "Real-time ride matching and booking",
+        "Integrated payment processing with Stripe",
+        "Google Maps integration for navigation",
+        "Driver and passenger dual interface",
+        "Earning opportunities for drivers",
+        "Location-based ride discovery",
+        "Secure payment and transaction history"
+      ],
+      "status": "completed",
+      "date": "2020-2021"
+    },
+    {
+      "id": "mydawa-healthcare",
+      "title": "MYDAWA Healthcare Platform",
+      "description": "Kenya's #1 all-in-one health platform providing direct access to qualified medical professionals, high-quality medicines, and health products. Features telemedicine, pharmacy services, and comprehensive healthcare management.",
+      "image": "/images/projects/mydawa-app.jpg",
+      "technologies": [
+        "React Native",
+        "TypeScript",
+        "Android Native",
+        "REST APIs",
+        "Payment Integration",
+        "Telemedicine APIs",
+        "Location Services",
+        "Push Notifications"
+      ],
+      "features": [
+        "Direct access to qualified medical professionals",
+        "Online pharmacy with medicine delivery",
+        "Telemedicine consultations",
+        "Health and wellness product marketplace",
+        "Secure payment processing",
+        "Location-based service delivery",
+        "Comprehensive health management system"
+      ],
+      "liveUrl": "https://play.google.com/store/apps/details?id=com.mydawa.MyDawa",
+      "status": "completed",
+      "date": "2020-2021"
     }
   ]
 }

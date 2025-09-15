@@ -94,7 +94,7 @@ Edit the JSON files in `src/data/` to update your personal information:
 - `about.json` - Bio, skills, achievements
 - `projects.json` - Portfolio projects
 - `experience.json` - Work experience
-- `education.json` - Education and certifications
+- `education.json` - Education information
 
 ### Styling
 

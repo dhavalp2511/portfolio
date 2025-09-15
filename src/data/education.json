@@ -2,11 +2,11 @@
   "education": [
     {
       "id": "bachelor-cs",
-      "institution": "University of Technology",
-      "degree": "Bachelor of Science in Computer Science",
-      "duration": "2015 - 2019",
-      "location": "Your City, Country",
-      "gpa": "3.8/4.0",
+      "institution": "Government Engineering College, Gandhinagar",
+      "degree": "Bachelor in Computer Engineering",
+      "duration": "2014 - 2018",
+      "location": "Gandhinagar, India",
+      "gpa": "8.37/10",
       "description": "Focused on software engineering, mobile application development, and modern web technologies. Graduated with honors.",
       "relevantCourses": [
         "Data Structures and Algorithms",
@@ -17,37 +17,10 @@
         "Computer Networks"
       ],
       "achievements": [
-        "Dean's List for 6 consecutive semesters",
-        "Led university's mobile app development club",
-        "Built award-winning mobile app for campus services",
-        "Completed internship at leading tech company"
+        "Led department's mobile app development club",
+        "Built modern mobile app for adventure sports",
+        "Organize college first cultural fest"
       ]
-    }
-  ],
-  "certifications": [
-    {
-      "id": "react-native-cert",
-      "name": "React Native Developer Certification",
-      "issuer": "Meta",
-      "date": "2023",
-      "credentialUrl": "https://certificate-url.com",
-      "description": "Advanced certification in React Native development and mobile app architecture."
-    },
-    {
-      "id": "aws-cert",
-      "name": "AWS Solutions Architect Associate",
-      "issuer": "Amazon Web Services",
-      "date": "2022",
-      "credentialUrl": "https://certificate-url.com",
-      "description": "Cloud architecture and solutions design certification."
-    },
-    {
-      "id": "js-cert",
-      "name": "JavaScript Algorithms and Data Structures",
-      "issuer": "freeCodeCamp",
-      "date": "2021",
-      "credentialUrl": "https://certificate-url.com",
-      "description": "Comprehensive JavaScript programming and problem-solving certification."
     }
   ]
 }

@@ -1,71 +1,117 @@
 {
   "experience": [
     {
-      "id": "senior-dev",
-      "company": "Tech Innovations Inc.",
-      "position": "Senior Full Stack Developer",
-      "duration": "2022 - Present",
+      "id": "freelancing-current",
+      "company": "Freelance Developer",
+      "position": "Full Stack Developer & Mobile App Developer",
+      "duration": "2023 - Present",
       "location": "Remote",
-      "type": "Full-time",
-      "description": "Lead development of mobile and web applications using React Native and modern web technologies. Mentor junior developers and collaborate with cross-functional teams.",
+      "type": "Freelance",
+      "description": "Working as a freelance developer with multiple startups to help them complete their dreams. Specializing in full-stack development, mobile app development, and complex system integrations across various industries including logistics, construction, and mapping.",
       "achievements": [
-        "Led a team of 4 developers in building a mobile app with 50K+ users",
-        "Reduced app loading time by 60% through performance optimization",
-        "Implemented CI/CD pipeline reducing deployment time by 80%",
-        "Mentored 3 junior developers who were promoted within 1 year"
+        "Developed comprehensive driver and warehouse management systems for Hailify with 10K+ downloads",
+        "Built Gomo Fleet Delivery app for both Android and iOS platforms with cross-platform functionality",
+        "Created Certifire floorplan management system with PDF editing and annotation capabilities",
+        "Developed C-Map offline-first application with real-time sync between web and mobile platforms",
+        "Implemented complex offline synchronization solutions using PowerSync and Supabase",
+        "Delivered end-to-end solutions from concept to deployment for multiple startup clients"
       ],
       "technologies": [
         "React Native",
-        "React",
-        "Node.js",
+        "Expo",
+        "Next.js",
         "TypeScript",
-        "AWS",
-        "MongoDB"
+        "Node.js",
+        "SST",
+        "Puppeteer",
+        "Ghostscript",
+        "GraphicsMagick",
+        "PowerSync",
+        "Supabase",
+        "React",
+        "Mobile App Development",
+        "Full Stack Development"
       ]
     },
     {
-      "id": "fullstack-dev",
-      "company": "Digital Solutions Ltd.",
-      "position": "Full Stack Developer",
-      "duration": "2020 - 2022",
-      "location": "New York, NY",
+      "id": "mindinventory-senior",
+      "company": "MindInventory",
+      "position": "Senior Software Engineer",
+      "duration": "April 2021 - August 2023",
+      "location": "Ahmedabad, India",
       "type": "Full-time",
-      "description": "Developed and maintained multiple web applications and mobile apps. Worked closely with design and product teams to deliver high-quality user experiences.",
+      "description": "Joined as a software engineer and progressed to senior role, focusing on mobile app development using Android Jetpack Compose and React Native technologies. Simultaneously managed multiple projects and led a team of developers.",
       "achievements": [
-        "Built 3 mobile applications from scratch using React Native",
-        "Improved existing web application performance by 45%",
-        "Integrated third-party APIs and payment systems",
-        "Collaborated with UI/UX team to improve user engagement by 30%"
+        "Developed BetterHalf AI-powered matchmaking platform with 10L+ downloads and 3.6-star rating",
+        "Built uGeo geo-social platform for discovering local events and connecting communities",
+        "Led and managed a team of developers across multiple concurrent projects",
+        "Enhanced expertise in Android Jetpack Compose and React Native development",
+        "Implemented advanced features including AI algorithms, real-time chat, and payment integration"
       ],
       "technologies": [
-        "React",
+        "Android Jetpack Compose",
         "React Native",
-        "Express.js",
-        "PostgreSQL",
-        "Firebase"
+        "TypeScript",
+        "React Query",
+        "MMKV",
+        "RazorPay",
+        "Fast Image",
+        "AI/ML Integration",
+        "Real-time Chat",
+        "Video Calling",
+        "Geolocation Services"
+      ]
+    },
+    {
+      "id": "openxcell-dev",
+      "company": "OpenXcell",
+      "position": "Software Engineer",
+      "duration": "January 2020 - April 2021",
+      "location": "India",
+      "type": "Full-time",
+      "description": "Focused on developing Android apps and hybrid apps using React Native. Expanded knowledge in both native and hybrid app development while improving ability to understand client requirements and provide accurate project estimates.",
+      "achievements": [
+        "Developed iO Carpool ride-sharing platform with payment integration and real-time location services",
+        "Provided end-to-end technical support for MYDAWA healthcare app as solo developer from India working with Ireland team",
+        "Enhanced skills in client requirement analysis and project estimation",
+        "Gained expertise in both native Android and React Native hybrid development"
+      ],
+      "technologies": [
+        "React Native",
+        "TypeScript",
+        "Android Native",
+        "Axios",
+        "AsyncStorage",
+        "Stripe Payment Integration",
+        "Google Maps API",
+        "Fast Image",
+        "REST APIs"
       ]
     },
     {
       "id": "frontend-dev",
-      "company": "Creative Web Studio",
-      "position": "Frontend Developer",
-      "duration": "2019 - 2020",
-      "location": "San Francisco, CA",
+      "company": "TatvaSoft",
+      "position": "Android Developer",
+      "duration": "2018 - 2020",
+      "location": "Ahmedabad, India",
       "type": "Full-time",
-      "description": "Focused on creating responsive and interactive user interfaces for various client projects. Collaborated with designers to implement pixel-perfect designs.",
+      "description": "Started as an Android trainee developer and progressed to Android developer role. Contributed to the completion of multiple Android native applications and gained experience in conducting technical interviews.",
       "achievements": [
-        "Delivered 15+ responsive websites with 99% client satisfaction",
-        "Reduced page load times by 50% through optimization techniques",
-        "Implemented modern JavaScript frameworks and build tools",
-        "Created reusable component library used across multiple projects"
+        "Successfully completed 7-8 Android native projects from development to deployment",
+        "Contributed to KFC Indonesia mobile app with 1M+ downloads on Google Play Store",
+        "Developed Hyer job search app connecting businesses to on-demand labor",
+        "Conducted technical interviews for the firm, helping in recruitment process",
+        "Gained expertise in Android native development and mobile app lifecycle"
       ],
       "technologies": [
-        "JavaScript",
-        "React",
-        "Vue.js",
-        "SASS",
-        "Webpack",
-        "Git"
+        "Android Native",
+        "Java",
+        "Kotlin",
+        "Android SDK",
+        "Google Play Services",
+        "REST APIs",
+        "Firebase",
+        "SQLite"
       ]
     }
   ]
