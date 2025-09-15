@@ -2,32 +2,32 @@
   "yearsOfExperience": "6+",
   "description": "Passionate Full Stack Developer with 6+ years of experience crafting innovative digital solutions. Specialized in React Native and mobile app development, I bridge the gap between stunning user interfaces and robust backend systems.",
   "skills": {
+    "mobile": [
+      "React Native",
+      "Expo",
+      "Android Development",
+      "iOS Development",
+      "Mobile UI/UX",
+      "Flutter"
+    ],
     "frontend": [
       "React",
       "React Native",
+      "Next.js",
       "JavaScript/TypeScript",
       "HTML5/CSS3",
-      "Vue.js",
       "Astro",
       "Tailwind CSS"
     ],
     "backend": [
       "Node.js",
+      "Supabase",
       "Express.js",
-      "Python",
       "MongoDB",
       "PostgreSQL",
       "Firebase",
       "REST APIs",
       "GraphQL"
-    ],
-    "mobile": [
-      "React Native",
-      "Expo",
-      "iOS Development",
-      "Android Development",
-      "Flutter",
-      "Mobile UI/UX"
     ],
     "tools": [
       "Git",
@@ -35,9 +35,12 @@
       "AWS",
       "Vercel",
       "Figma",
-      "VS Code",
+      "Cursor",
       "Postman",
-      "Jest"
+      "Jest",
+      "Jira",
+      "Confluence",
+      "Slack"
     ]
   },
   "achievements": [
