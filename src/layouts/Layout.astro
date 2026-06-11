@@ -4,93 +4,55 @@ export interface Props {
   description?: string;
 }
 
-const { title, description = "Dhaval Patel - Full Stack Developer specializing in React Native and Mobile App Development" } = Astro.props;
+const {
+  title,
+  description = "Dhaval Patel — Full-stack & mobile engineer. Seven years shipping React Native, Android, iOS, React.js, Next.js and Spring Boot products from first commit to app store.",
+} = Astro.props;
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 ---
 
-<!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<!doctype html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#f2eee3" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:title" content={title} />
-    <meta property="twitter:description" content={description} />
-    
+    <meta property="og:type" content="website" />
+    <link rel="icon" type="image/svg+xml" href={`${base}/favicon.svg`} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap"
+      rel="stylesheet"
+    />
     <title>{title}</title>
-    
-    <!-- Import global styles -->
-    <style>
-      /* Additional critical styles can be placed here */
-    </style>
   </head>
   <body>
-    <div id="mouse-follower" class="fixed w-6 h-6 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full pointer-events-none z-50 opacity-0 transition-opacity duration-300"></div>
+    <a href="#main" class="skip-link">Skip to content</a>
+    <div class="drafting-grid" aria-hidden="true"></div>
+    <div class="edge-label mono-label" aria-hidden="true">
+      DHAVAL PATEL — ENGINEERING RECORD — EDITION 2026
+    </div>
     <slot />
-    
     <script>
-      // Mouse follower effect
-      const mouseFollower = document.getElementById('mouse-follower');
-      let mouseX = 0;
-      let mouseY = 0;
-      let followerX = 0;
-      let followerY = 0;
-      
-      document.addEventListener('mousemove', (e) => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-        mouseFollower!.style.opacity = '0.6';
-      });
-      
-      document.addEventListener('mouseleave', () => {
-        mouseFollower!.style.opacity = '0';
-      });
-      
-      function animateFollower() {
-        const dx = mouseX - followerX;
-        const dy = mouseY - followerY;
-        
-        followerX += dx * 0.1;
-        followerY += dy * 0.1;
-        
-        mouseFollower!.style.transform = `translate(${followerX - 12}px, ${followerY - 12}px)`;
-        
-        requestAnimationFrame(animateFollower);
-      }
-      
-      animateFollower();
-      
-      // Smooth scrolling for navigation links
-      document.addEventListener('DOMContentLoaded', () => {
-        const links = document.querySelectorAll('a[href^="#"]');
-        links.forEach(link => {
-          link.addEventListener('click', (e) => {
-            e.preventDefault();
-            const target = document.querySelector(link.getAttribute('href')!);
-            if (target) {
-              target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-              });
+      const els = document.querySelectorAll(".reveal");
+      const io = new IntersectionObserver(
+        (entries) => {
+          for (const entry of entries) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("in-view");
+              io.unobserve(entry.target);
             }
-          });
-        });
-      });
+          }
+        },
+        { threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
+      );
+      els.forEach((el) => io.observe(el));
     </script>
   </body>
 </html>
-
-<style>
-  html {
-    font-family: 'Inter', system-ui, sans-serif;
-  }
-</style>

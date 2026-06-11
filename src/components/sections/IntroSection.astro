@@ -1,49 +1,94 @@
 ---
-import personalData from '../../data/personal.json';
+import personal from "../../data/personal.json";
+import about from "../../data/about.json";
+
+const titleBlock = [
+  ["Drawn by", "D. Patel"],
+  ["Discipline", "Full-stack / Mobile"],
+  ["In service", `${about.yearsOfExperience} years`],
+  ["Sheet", "01 / 06"],
+  ["Rev", "2026.06"],
+];
 ---
 
-<section id="intro" class="min-h-screen flex items-center justify-center relative z-10">
-  <div class="max-w-7xl mx-auto px-6 text-center">
-    <div class="floating-element">
-      <h1 class="text-5xl md:text-7xl font-bold mb-6">
-        Hi, I'm <span class="gradient-text">{personalData.name}</span>
-      </h1>
-      
-      <h2 class="text-xl md:text-2xl text-gray-300 mb-4">
-        {personalData.title}
-      </h2>
-      
-      <p class="text-lg text-gray-400 mb-8 max-w-2xl mx-auto">
-        Specializing in <span class="text-purple-400">{personalData.specialties.join(', ')}</span>
-      </p>
-      
-      <p class="text-lg text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
-        {personalData.tagline}
-      </p>
-      
-      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-        <a href="#projects" 
-           class="px-8 py-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-lg font-medium hover:from-purple-700 hover:to-blue-700 transition-all duration-300 transform hover:scale-105 shadow-lg">
-          View My Work
-        </a>
-        <a href="#contact" 
-           class="px-8 py-3 glass-effect text-white rounded-lg font-medium hover:bg-white hover:bg-opacity-10 transition-all duration-300 transform hover:scale-105">
-          Get In Touch
-        </a>
+<section id="top" class="relative flex min-h-screen flex-col justify-between pb-10 pt-28">
+  <div class="shell">
+    <div
+      class="hero-rise flex flex-wrap items-center justify-between gap-x-6 gap-y-2 border-b border-rule pb-4"
+      style="--d: 60ms"
+    >
+      <span class="mono-label text-vermilion">Fig. 01 — Index</span>
+      <span class="mono-label hidden text-muted sm:block">
+        {personal.location} · 23.0225° N, 72.5714° E
+      </span>
+      <span class="mono-label text-muted">Engineering record · Ed. 2026</span>
+    </div>
+
+    <h1 class="hero-name mt-10 font-display" aria-label={personal.name}>
+      <span class="hero-rise block" style="--d: 160ms">Dhaval</span>
+      <span class="hero-rise block pl-[0.08em] italic" style="--d: 280ms">
+        Patel<span class="dot not-italic">.</span>
+      </span>
+    </h1>
+
+    <div class="mt-12 grid gap-10 lg:grid-cols-12 lg:gap-6">
+      <div class="hero-rise lg:col-span-7" style="--d: 420ms">
+        <p class="max-w-xl text-lg leading-relaxed text-ink-soft sm:text-xl">
+          {personal.title} — {personal.tagline.toLowerCase()}. Seven years of
+          taking products from first commit to the app store, across native
+          mobile, modern web and production backends.
+        </p>
+        <ul class="mt-8 flex max-w-xl flex-wrap gap-2" aria-label="Specialties">
+          {
+            personal.specialties.map((s) => (
+              <li class="stamp">{s}</li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <div class="hero-rise lg:col-span-4 lg:col-start-9" style="--d: 540ms">
+        <table class="w-full border border-rule-strong" aria-label="Title block">
+          <tbody>
+            {
+              titleBlock.map(([k, v]) => (
+                <tr class="border-b border-rule last:border-b-0">
+                  <th class="mono-label w-1/2 border-r border-rule px-3 py-2.5 text-left font-medium text-muted">
+                    {k}
+                  </th>
+                  <td class="mono-label px-3 py-2.5">{v}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
       </div>
     </div>
-    
-    <!-- Scroll indicator -->
-    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-      <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-      </svg>
+  </div>
+
+  <div class="shell hero-rise mt-16" style="--d: 680ms">
+    <div class="flex flex-wrap items-center justify-between gap-4 border-t border-rule pt-4">
+      <a href="#about" class="mono-label group inline-flex items-center gap-3">
+        <span class="inline-block transition-transform duration-300 group-hover:translate-y-1"
+          >↓</span
+        >
+        Scroll — specifications follow
+      </a>
+      <a
+        href={`mailto:${personal.email}`}
+        class="mono-label text-muted transition-colors hover:text-vermilion"
+      >
+        {personal.email}
+      </a>
     </div>
   </div>
 </section>
 
 <style>
-  .floating-element {
-    animation: float 6s ease-in-out infinite;
+  .hero-name {
+    font-size: clamp(4.25rem, 15vw, 12.5rem);
+    font-weight: 440;
+    line-height: 0.88;
+    letter-spacing: -0.025em;
   }
 </style>

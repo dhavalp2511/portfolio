@@ -20,6 +20,8 @@
       "Tailwind CSS"
     ],
     "backend": [
+      "Spring Boot",
+      "Java",
       "Node.js",
       "Supabase",
       "Express.js",

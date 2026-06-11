@@ -1,69 +1,235 @@
 @import "tailwindcss";
 
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap");
+/* ————————————————————————————————————————————————
+   THE ENGINEERING RECORD — design tokens
+   Paper, ink, vermilion. Fraunces / Archivo / IBM Plex Mono.
+   ———————————————————————————————————————————————— */
 
-* {
-  box-sizing: border-box;
+@theme {
+  --color-paper: #f2eee3;
+  --color-paper-deep: #e8e2d1;
+  --color-ink: #1b1813;
+  --color-ink-soft: #433d30;
+  --color-muted: #79705c;
+  --color-vermilion: #d23f00;
+  --color-ember: #ff6a2b;
+  --color-rule: rgb(27 24 19 / 0.16);
+  --color-rule-strong: rgb(27 24 19 / 0.42);
+  --color-rule-dark: rgb(242 238 227 / 0.16);
+  --color-rule-dark-strong: rgb(242 238 227 / 0.45);
+
+  --font-display: "Fraunces", "Georgia", serif;
+  --font-body: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
 }
 
 html {
-  font-family: "Inter", system-ui, sans-serif;
   scroll-behavior: smooth;
 }
 
 body {
-  margin: 0;
-  min-height: 100vh;
-  background: #0a0a0a;
-  color: #ffffff;
-  overflow-x: hidden;
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
-.gradient-text {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+body.menu-open {
+  overflow: hidden;
 }
 
-.glass-effect {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+::selection {
+  background-color: var(--color-vermilion);
+  color: var(--color-paper);
 }
 
-.floating-element {
-  animation: float 6s ease-in-out infinite;
+/* ——— drafting-sheet backdrop: fine dot grid + coarse rule grid ——— */
+.drafting-grid {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(rgb(27 24 19 / 0.12) 1px, transparent 1.6px),
+    linear-gradient(rgb(27 24 19 / 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(27 24 19 / 0.05) 1px, transparent 1px);
+  background-size:
+    26px 26px,
+    208px 208px,
+    208px 208px;
 }
 
-@keyframes float {
-  0%,
-  100% {
-    transform: translateY(0px);
+/* ——— paper grain over everything ——— */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 70;
+  pointer-events: none;
+  opacity: 0.5;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.07 0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ——— dark sections flip the local palette ——— */
+.dark-zone {
+  --color-rule: var(--color-rule-dark);
+  --color-rule-strong: var(--color-rule-dark-strong);
+  --color-muted: #a59c85;
+  --color-vermilion: var(--color-ember);
+  background-color: var(--color-ink);
+  color: var(--color-paper);
+}
+
+/* ——— shared primitives ——— */
+.shell {
+  width: 100%;
+  max-width: 84rem;
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 4.5vw, 4.5rem);
+}
+
+.section-pad {
+  padding-block: clamp(5rem, 10vw, 8.5rem);
+}
+
+.mono-label {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.stamp {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid var(--color-rule-strong);
+  padding: 0.4rem 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* figure header: FIG. NN ——————— meta */
+.fig-head {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding-block: 1rem;
+  border-bottom: 1px solid var(--color-rule);
+}
+
+.fig-no {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  color: var(--color-vermilion);
+}
+
+.fig-rule {
+  flex: 1 1 auto;
+  border-top: 1px solid var(--color-rule);
+}
+
+/* section display heading — every heading ends in a vermilion period */
+.display-head {
+  font-family: var(--font-display);
+  font-weight: 430;
+  font-size: clamp(2.75rem, 6.5vw, 5.25rem);
+  line-height: 0.98;
+  letter-spacing: -0.02em;
+}
+
+.dot {
+  color: var(--color-vermilion);
+}
+
+/* ——— vertical edge label (xl screens) ——— */
+.edge-label {
+  display: none;
+  position: fixed;
+  left: 1.05rem;
+  top: 50%;
+  z-index: 30;
+  transform: translateY(-50%) rotate(180deg);
+  writing-mode: vertical-rl;
+  color: var(--color-muted);
+  pointer-events: none;
+}
+
+@media (min-width: 1280px) {
+  .edge-label {
+    display: block;
   }
-  50% {
-    transform: translateY(-20px);
+}
+
+/* ——— scroll reveal ——— */
+.reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition:
+    opacity 0.7s ease var(--d, 0ms),
+    transform 0.7s cubic-bezier(0.22, 0.65, 0.26, 1) var(--d, 0ms);
+}
+
+.reveal.in-view {
+  opacity: 1;
+  transform: none;
+}
+
+/* ——— hero load choreography ——— */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(38px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
   }
 }
 
-.scroll-smooth {
-  scroll-behavior: smooth;
+.hero-rise {
+  opacity: 0;
+  animation: rise 0.85s cubic-bezier(0.22, 0.65, 0.26, 1) forwards;
+  animation-delay: var(--d, 0ms);
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
+/* ——— skip link ——— */
+.skip-link {
+  position: fixed;
+  top: -100%;
+  left: 1rem;
+  z-index: 100;
+  background: var(--color-ink);
+  color: var(--color-paper);
+  padding: 0.6rem 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
 
-::-webkit-scrollbar-track {
-  background: #1a1a1a;
+.skip-link:focus {
+  top: 1rem;
 }
 
-::-webkit-scrollbar-thumb {
-  background: #333;
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #555;
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal,
+  .hero-rise {
+    opacity: 1;
+    transform: none;
+    transition: none;
+    animation: none;
+  }
 }

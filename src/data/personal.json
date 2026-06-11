@@ -1,7 +1,14 @@
 {
   "name": "Dhaval Patel",
-  "title": "Full Stack Developer",
-  "specialties": ["React Native", "Mobile App Expert"],
+  "title": "Full-Stack & Mobile Engineer",
+  "specialties": [
+    "React Native",
+    "Android",
+    "iOS",
+    "React.js",
+    "Next.js",
+    "Spring Boot"
+  ],
   "tagline": "Building seamless digital experiences across web and mobile platforms",
   "email": "pateldhaval11r@gmail.com",
   "phone": "+91 7383643078",

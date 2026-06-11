@@ -1,323 +1,202 @@
 ---
+import personal from "../data/personal.json";
+
+const links = [
+  { no: "02", label: "Profile", href: "#about" },
+  { no: "03", label: "Work", href: "#work" },
+  { no: "04", label: "Experience", href: "#experience" },
+  { no: "05", label: "Education", href: "#education" },
+  { no: "06", label: "Contact", href: "#contact" },
+];
 ---
 
-<nav class="fixed top-6 left-1/2 transform -translate-x-1/2 z-40 nav-card">
-  <div class="px-6 py-3">
-    <!-- Desktop Navigation -->
-    <div class="hidden md:flex justify-center items-center">
-      <div class="dp-logo">
-        DP
-      </div>
-      
-      <div class="flex space-x-6 ml-8">
-        <a href="#intro" class="nav-link text-gray-300 hover:text-white transition-all duration-300">
-          Home
-        </a>
-        <a href="#about" class="nav-link text-gray-300 hover:text-white transition-all duration-300">
-          About
-        </a>
-        <a href="#projects" class="nav-link text-gray-300 hover:text-white transition-all duration-300">
-          Projects
-        </a>
-        <a href="#experience" class="nav-link text-gray-300 hover:text-white transition-all duration-300">
-          Experience
-        </a>
-        <a href="#education" class="nav-link text-gray-300 hover:text-white transition-all duration-300">
-          Education
-        </a>
-        <a href="#contact" class="nav-link text-gray-300 hover:text-white transition-all duration-300">
-          Contact
-        </a>
-      </div>
-    </div>
-    
-    <!-- Mobile Navigation -->
-    <div class="md:hidden flex justify-center items-center">
-      <button id="mobile-menu-toggle" class="mobile-dp-logo text-white focus:outline-none">
-        DP
-      </button>
-    </div>
-  </div>
-  
-  
-  <!-- Mobile menu -->
-  <div id="mobile-menu" class="md:hidden hidden mobile-menu-container">
-    <div class="nav-card">
-      <div class="px-6 py-4">
-        <div class="flex flex-col space-y-2">
-          <a href="#intro" class="nav-link text-gray-300 hover:text-white transition-all duration-300">
-            Home
-          </a>
-          <a href="#about" class="nav-link text-gray-300 hover:text-white transition-all duration-300">
-            About
-          </a>
-          <a href="#projects" class="nav-link text-gray-300 hover:text-white transition-all duration-300">
-            Projects
-          </a>
-          <a href="#experience" class="nav-link text-gray-300 hover:text-white transition-all duration-300">
-            Experience
-          </a>
-          <a href="#education" class="nav-link text-gray-300 hover:text-white transition-all duration-300">
-            Education
-          </a>
-          <a href="#contact" class="nav-link text-gray-300 hover:text-white transition-all duration-300">
-            Contact
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</nav>
+<header id="site-nav" class="fixed inset-x-0 top-0 z-50 border-b border-rule">
+  <div class="shell flex h-16 items-center justify-between">
+    <a href="#top" class="group flex items-center gap-3" aria-label="Back to top">
+      <span class="block h-2.5 w-2.5 bg-vermilion transition-transform duration-300 group-hover:rotate-45"
+      ></span>
+      <span class="mono-label"
+        >Patel, Dhaval<span class="hidden sm:inline"> — Engineering Record</span></span
+      >
+    </a>
 
-<script>
-  // Mobile menu toggle
-  const toggleButton = document.getElementById('mobile-menu-toggle');
-  const mobileMenu = document.getElementById('mobile-menu');
-  
-  toggleButton?.addEventListener('click', () => {
-    mobileMenu?.classList.toggle('hidden');
-  });
-  
-  // Close mobile menu when clicking on a link
-  const mobileLinks = mobileMenu?.querySelectorAll('a');
-  mobileLinks?.forEach(link => {
-    link.addEventListener('click', () => {
-      mobileMenu?.classList.add('hidden');
-    });
-  });
-  
-  // Active link highlighting
-  const navLinks = document.querySelectorAll('.nav-link');
-  
-  function updateActiveLink() {
-    const sections = ['intro', 'about', 'projects', 'experience', 'education', 'contact'];
-    const scrollY = window.scrollY;
-    
-    sections.forEach(section => {
-      const element = document.getElementById(section);
-      if (element) {
-        const rect = element.getBoundingClientRect();
-        const isVisible = rect.top <= 100 && rect.bottom >= 100;
-        
-        navLinks.forEach(link => {
-          if (link.getAttribute('href') === `#${section}`) {
-            if (isVisible) {
-              link.classList.add('text-white');
-              link.classList.remove('text-gray-300');
-            } else {
-              link.classList.add('text-gray-300');
-              link.classList.remove('text-white');
-            }
-          }
-        });
+    <nav class="hidden items-center gap-8 md:flex" aria-label="Primary">
+      {
+        links.map((link) => (
+          <a href={link.href} class="nav-link mono-label">
+            <sup class="mr-1 text-vermilion">{link.no}</sup>
+            {link.label}
+          </a>
+        ))
       }
-    });
-  }
-  
-  window.addEventListener('scroll', updateActiveLink);
-  updateActiveLink(); // Initial call
-</script>
+    </nav>
+
+    <button
+      id="menu-btn"
+      class="menu-btn md:hidden"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+      aria-label="Toggle menu"
+    >
+      <span class="menu-bar"></span>
+      <span class="menu-bar"></span>
+    </button>
+  </div>
+</header>
+
+<div id="mobile-menu" class="mobile-menu" aria-hidden="true">
+  <nav class="shell flex flex-col" aria-label="Mobile">
+    {
+      links.map((link, i) => (
+        <a
+          href={link.href}
+          class="mobile-link border-t border-rule py-5"
+          style={`--d: ${i * 60}ms`}
+        >
+          <span class="mono-label mr-4 text-vermilion">{link.no}</span>
+          <span class="font-display text-4xl leading-none">{link.label}</span>
+        </a>
+      ))
+    }
+    <div class="mt-10 border-t border-rule pt-6">
+      <p class="mono-label text-muted">Direct line</p>
+      <a href={`mailto:${personal.email}`} class="mt-2 block font-mono text-sm">
+        {personal.email}
+      </a>
+    </div>
+  </nav>
+</div>
 
 <style>
-  .nav-card {
-    background: rgba(255, 255, 255, 0.12);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    border-radius: 16px;
-    box-shadow: 
-      0 8px 32px rgba(0, 0, 0, 0.3),
-      0 0 0 1px rgba(255, 255, 255, 0.08),
-      inset 0 1px 0 rgba(255, 255, 255, 0.15);
-    transition: all 0.3s ease;
-    max-width: fit-content;
-    animation: navSlideIn 0.8s ease-out;
+  #site-nav {
+    background: transparent;
+    transition:
+      background-color 0.35s ease,
+      backdrop-filter 0.35s ease;
   }
 
-  .nav-card:hover {
-    box-shadow: 
-      0 12px 40px rgba(0, 0, 0, 0.4),
-      0 0 0 1px rgba(255, 255, 255, 0.12),
-      inset 0 1px 0 rgba(255, 255, 255, 0.2);
-    background: rgba(255, 255, 255, 0.15);
-  }
-
-  .mobile-menu-container {
-    position: fixed;
-    top: 80px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 39;
-    width: auto;
-    min-width: 200px;
-    will-change: transform;
-    max-width: calc(100vw - 48px);
-  }
-
-  .mobile-menu-container .nav-card {
-    animation: mobileMenuSlideIn 0.3s ease-out;
-    width: 100%;
-  }
-
-
-  .dp-logo {
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    font-size: 1.125rem;
-    color: white;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-    box-shadow: 
-      0 4px 12px rgba(102, 126, 234, 0.3),
-      inset 0 1px 0 rgba(255, 255, 255, 0.2);
-    transition: all 0.3s ease;
-    cursor: pointer;
-  }
-
-  .dp-logo:hover {
-    transform: scale(1.05);
-    box-shadow: 
-      0 6px 16px rgba(102, 126, 234, 0.4),
-      inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  #site-nav.scrolled {
+    background-color: color-mix(in srgb, var(--color-paper) 88%, transparent);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
   }
 
   .nav-link {
     position: relative;
-    font-weight: 500;
-    font-size: 0.875rem;
-    padding: 0.5rem 0.75rem;
-    border-radius: 8px;
-    transition: all 0.3s ease;
-  }
-  
-  .nav-link:hover {
-    background: rgba(255, 255, 255, 0.08);
-    transform: translateY(-1px);
+    padding-block: 0.25rem;
+    color: var(--color-ink);
   }
 
   .nav-link::after {
-    content: '';
+    content: "";
     position: absolute;
-    bottom: 2px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 0;
-    height: 2px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    border-radius: 1px;
-    transition: width 0.3s ease;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 1px;
+    background: var(--color-vermilion);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s cubic-bezier(0.22, 0.65, 0.26, 1);
   }
-  
+
   .nav-link:hover::after {
-    width: 60%;
+    transform: scaleX(1);
+    transform-origin: left;
   }
 
-  .nav-link.text-white::after {
-    width: 60%;
+  .menu-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 7px;
+    width: 44px;
+    height: 44px;
+    align-items: center;
   }
 
-  @keyframes navSlideIn {
-    from {
-      opacity: 0;
-      transform: translateY(-20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  @keyframes mobileMenuSlideIn {
-    from {
-      opacity: 0;
-      transform: translateY(-10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  /* Responsive adjustments */
-  @media (max-width: 768px) {
-    .nav-card {
-      left: 50%;
-      right: auto;
-      transform: translateX(-50%);
-      width: auto;
-      padding: 0;
-      position: fixed;
-      top: 24px;
-    }
-
-    .nav-card > div {
-      padding: 0.75rem;
-    }
-
-    .mobile-dp-logo {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 0.875rem;
-      color: white;
-      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-      box-shadow: 
-        0 4px 12px rgba(102, 126, 234, 0.3),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2);
-      transition: all 0.3s ease;
-      border: none;
-      cursor: pointer;
-    }
-
-    .mobile-dp-logo:hover {
-      transform: scale(1.05);
-      box-shadow: 
-        0 6px 16px rgba(102, 126, 234, 0.4),
-        inset 0 1px 0 rgba(255, 255, 255, 0.3);
-    }
-
-    .mobile-dp-logo:active {
-      transform: scale(0.95);
-    }
-
-    .mobile-menu-container {
-      top: 88px;
-    }
-
-    .mobile-menu-container .nav-link {
-      font-size: 0.9rem;
-      padding: 0.75rem 1rem;
-      border-radius: 8px;
-      margin: 0.125rem 0;
-    }
-  }
-
-  /* Hide mobile menu by default */
-  #mobile-menu.hidden {
-    display: none !important;
-  }
-
-  #mobile-menu {
+  .menu-bar {
     display: block;
+    width: 26px;
+    height: 1.5px;
+    background: var(--color-ink);
+    transition: transform 0.3s ease;
   }
 
-  /* Ensure desktop navigation is visible on larger screens */
-  @media (min-width: 768px) {
-    .hidden.md\\:flex {
-      display: flex !important;
+  :global(body.menu-open) .menu-bar:first-child {
+    transform: translateY(4.25px) rotate(45deg);
+  }
+
+  :global(body.menu-open) .menu-bar:last-child {
+    transform: translateY(-4.25px) rotate(-45deg);
+  }
+
+  .mobile-menu {
+    position: fixed;
+    inset: 0;
+    z-index: 45;
+    background: var(--color-paper);
+    padding-top: 6.5rem;
+    transform: translateY(-102%);
+    transition:
+      transform 0.45s cubic-bezier(0.22, 0.65, 0.26, 1),
+      visibility 0s linear 0.45s;
+    visibility: hidden;
+  }
+
+  :global(body.menu-open) .mobile-menu {
+    transform: none;
+    visibility: visible;
+    transition:
+      transform 0.45s cubic-bezier(0.22, 0.65, 0.26, 1),
+      visibility 0s;
+  }
+
+  .mobile-link {
+    opacity: 0;
+    transform: translateY(14px);
+    transition:
+      opacity 0.4s ease var(--d, 0ms),
+      transform 0.4s ease var(--d, 0ms);
+  }
+
+  :global(body.menu-open) .mobile-link {
+    opacity: 1;
+    transform: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .mobile-menu,
+    .mobile-link {
+      transition: none;
     }
-    
-    .md\\:hidden {
-      display: none !important;
+    .mobile-link {
+      opacity: 1;
+      transform: none;
     }
   }
 </style>
+
+<script>
+  const header = document.getElementById("site-nav")!;
+  const btn = document.getElementById("menu-btn")!;
+  const menu = document.getElementById("mobile-menu")!;
+
+  const setMenu = (open: boolean) => {
+    document.body.classList.toggle("menu-open", open);
+    btn.setAttribute("aria-expanded", String(open));
+    menu.setAttribute("aria-hidden", String(!open));
+  };
+
+  btn.addEventListener("click", () =>
+    setMenu(!document.body.classList.contains("menu-open"))
+  );
+
+  menu.querySelectorAll("a").forEach((a) =>
+    a.addEventListener("click", () => setMenu(false))
+  );
+
+  const onScroll = () => header.classList.toggle("scrolled", window.scrollY > 24);
+  onScroll();
+  window.addEventListener("scroll", onScroll, { passive: true });
+</script>
